@@ -1,0 +1,36 @@
+api:
+  base_url: "https://jsonplaceholder.typicode.com"
+  timeout: 20
+  verify_ssl: true
+
+
+auth:
+  type: "none"  # bearer, basic, api_key, none
+  token: ""
+  username: ""
+  password: ""
+  api_key_header: "X-API-Key"
+  api_key_value: ""
+
+tests:
+  enabled:
+    - auth_tests
+    - injection_tests
+    - rate_limit_tests
+    - header_tests
+
+  rate_limit:
+    requests_count: 10
+    time_window: 5
+
+  injection:
+    sql_payloads:
+      - "' OR '1'='1"
+      - "'; DROP TABLE users--"
+    xss_payloads:
+      - "<script>alert('XSS')</script>"
+    command_payloads:
+      - "; ls -la"
+
+reporting:
+  output_dir: "reports"

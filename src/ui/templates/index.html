@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Security Tester</title>
+  <style>
+    body { background:#111; color:#eee; font-family:Arial; text-align:center; padding:40px; }
+    form { background:#222; padding:25px; border-radius:10px; display:inline-block; }
+    input,button { margin:8px; padding:10px; border:none; border-radius:6px; }
+    button { background:#00b894; color:#fff; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <h1>🛡️ API Security Tester</h1>
+  <form method="POST" action="/run_tests">
+    <input name="base_url" placeholder="API Base URL" required><br>
+    <label><input type="checkbox" name="tests" value="auth"> Auth Tests</label><br>
+    <label><input type="checkbox" name="tests" value="injection"> Injection Tests</label><br>
+    <label><input type="checkbox" name="tests" value="rate"> Rate Limit Tests</label><br>
+    <label><input type="checkbox" name="tests" value="header"> Header Tests</label><br>
+    <button type="submit">Run Tests</button>
+  </form>
+</body>
+</html>

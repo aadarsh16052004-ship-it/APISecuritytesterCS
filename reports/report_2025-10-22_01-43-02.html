@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+  <style>
+    body { background:#111; color:#eee; font-family:Arial; padding:30px; }
+    table { width:100%; border-collapse:collapse; background:#222; margin:20px 0; }
+    th, td { border:1px solid #333; padding:10px; }
+    th { background:#00b894; }
+  </style>
+</head>
+<body>
+  <h2>🧪 Test Results</h2>
+  <pre>{
+  "by_severity": {
+    "CRITICAL": 2,
+    "HIGH": 2,
+    "INFO": 0,
+    "LOW": 0,
+    "MEDIUM": 3
+  },
+  "total": 7
+}</pre>
+  <table>
+    <tr><th>Test</th><th>Endpoint</th><th>Severity</th><th>Description</th></tr>
+    
+      <tr><td>No Authentication</td><td>/users</td><td>HIGH</td><td>Accessible without authentication</td></tr>
+    
+      <tr><td>Invalid Token</td><td>/users</td><td>CRITICAL</td><td>Invalid token accepted</td></tr>
+    
+      <tr><td>No Authentication</td><td>/posts</td><td>HIGH</td><td>Accessible without authentication</td></tr>
+    
+      <tr><td>Invalid Token</td><td>/posts</td><td>CRITICAL</td><td>Invalid token accepted</td></tr>
+    
+      <tr><td>Rate Limiting</td><td>/users</td><td>MEDIUM</td><td>No rate limit after 10 requests</td></tr>
+    
+      <tr><td>Security Headers</td><td>/users</td><td>MEDIUM</td><td>Missing headers: X-Frame-Options, Strict-Transport-Security</td></tr>
+    
+      <tr><td>Security Headers</td><td>/profile</td><td>MEDIUM</td><td>Missing headers: X-Frame-Options, Strict-Transport-Security</td></tr>
+    
+  </table>
+  <h3>Recommendations</h3>
+  <ul><li>Add recommended HTTP security headers.</li><li>Enforce strong authentication.</li></ul>
+  <a href="/">← Back</a>
+</body>
+</html>

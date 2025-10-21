@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+  <style>
+    body { background:#111; color:#eee; font-family:Arial; padding:30px; }
+    table { width:100%; border-collapse:collapse; background:#222; margin:20px 0; }
+    th, td { border:1px solid #333; padding:10px; }
+    th { background:#00b894; }
+  </style>
+</head>
+<body>
+  <h2>🧪 Test Results</h2>
+  <pre>{{ stats | tojson(indent=2) }}</pre>
+  <table>
+    <tr><th>Test</th><th>Endpoint</th><th>Severity</th><th>Description</th></tr>
+    {% for v in vulns %}
+      <tr><td>{{ v.test_name }}</td><td>{{ v.endpoint }}</td><td>{{ v.severity }}</td><td>{{ v.description }}</td></tr>
+    {% endfor %}
+  </table>
+  <h3>Recommendations</h3>
+  <ul>{% for r in recs %}<li>{{ r }}</li>{% endfor %}</ul>
+  <a href="/">← Back</a>
+</body>
+</html>
