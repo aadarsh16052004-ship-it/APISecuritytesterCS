@@ -7,5 +7,3 @@ python-dotenv==1.0.0
 gunicorn
 requests
 PyYAML
-Flask==2.3.5
-requests
