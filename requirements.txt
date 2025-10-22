@@ -8,4 +8,3 @@ gunicorn
 requests
 PyYAML
 Flask==2.3.5
-requests
